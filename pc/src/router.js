@@ -1,9 +1,29 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Page from './views/Page.vue'
 import nav from './nav.js'
 
 Vue.use(Router)
+
+let navs = []
+nav.forEach(it => {
+  if (it.children && it.children.length) {
+    it.children.forEach(jt => {
+      let path = `/${it.name}/${jt.name}`
+      navs.push({
+        path: path,
+        component: require(`./views/page${path}.vue`).default
+      })
+    })
+  } else {
+    let path = `/${it.name}`
+    navs.push({
+      path: path,
+      component: require(`./views/page${path}.vue`).default
+    })
+  }
+})
 
 export default new Router({
   routes: [
@@ -11,18 +31,12 @@ export default new Router({
       path: '/',
       name: 'login',
       component: Home
+    },
+    {
+      path: '/page',
+      name: 'page',
+      component: Page,
+      children: navs
     }
-  ].concat(function () {
-    let navs = []
-    nav.forEach(it => {
-      it.children.forEach(jt => {
-        let path = `/${it.name}/${jt.name}`
-        navs.push({
-          path: path,
-          component: require(`./views${path}.vue`).default
-        })
-      })
-    })
-    return navs
-  }())
+  ]
 })

@@ -1,6 +1,10 @@
 export default
 [
   {
+    label: 'index',
+    name: 'index'
+  },
+  {
     label: '一级 1',
     name: 'a',
     children: [
