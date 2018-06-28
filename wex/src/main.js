@@ -6,6 +6,7 @@ import store from './store'
 import Components from './components/install.js'
 import 'mint-ui/lib/style.min.css'
 import server from './server'
+import './utils'
 
 Vue.mixin({
   computed: {

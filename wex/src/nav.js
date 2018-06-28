@@ -6,21 +6,27 @@ let nav = [
     component: Home,
     children: [
       {
+        name: 'jfsc',
+        meta: {
+          title: '积分商城'
+        }
+      },
+      {
+        name: 'dzsc',
+        meta: {
+          title: '定制商城'
+        }
+      },
+      {
+        name: 'cart',
+        meta: {
+          title: '购物车'
+        }
+      },
+      {
         name: 'my',
         meta: {
           title: '我的'
-        }
-      },
-      {
-        name: 'my1',
-        meta: {
-          title: '我的1'
-        }
-      },
-      {
-        name: 'my2',
-        meta: {
-          title: '我的2'
         }
       }
     ]
