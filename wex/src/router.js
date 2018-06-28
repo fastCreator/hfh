@@ -1,29 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import nav from './nav.js'
+import navs from './nav'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    }
-  ].concat(function () {
-    let navs = []
-    nav.forEach(it => {
-      it.children.forEach(jt => {
-        let path = `/${it.name}/${jt.name}`
-        navs.push({
-          path: path,
-          name: 'home',
-          component: require(`./views${path}.vue`).default
-        })
-      })
-    })
-    return navs
-  }())
+  routes: navs
 })

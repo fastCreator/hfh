@@ -1,27 +1,51 @@
-export default
-[
+import Home from './views/Home.vue'
+import Page from './views/Page.vue'
+let nav = [
   {
-    label: '一级 1',
-    name: 'a',
+    path: '/',
+    component: Home,
     children: [
       {
-        name: 'b',
-        label: '二级 1-1'
+        name: 'my',
+        meta: {
+          title: '我的'
+        }
+      },
+      {
+        name: 'my1',
+        meta: {
+          title: '我的1'
+        }
+      },
+      {
+        name: 'my2',
+        meta: {
+          title: '我的2'
+        }
       }
     ]
   },
   {
-    label: '一级 2',
-    name: 'c',
+    path: '/page',
+    component: Page,
     children: [
       {
-        name: 'd',
-        label: '二级 2-1'
-      },
-      {
-        name: 'e',
-        label: '二级 2-2'
+        name: 'a',
+        meta: {
+          title: 'a的'
+        }
       }
     ]
   }
 ]
+nav[0].children.forEach(it => {
+  it.component = require(`./views/home/${it.name}.vue`).default
+  it.path = `/home/${it.name}`
+})
+nav[1].children.forEach(it => {
+  it.component = require(`./views/page/${it.name}.vue`).default
+  it.path = `/page/${it.name}`
+})
+nav[0].redirect = nav[0].children[0].path
+
+export default nav
