@@ -19,4 +19,16 @@ body {
 #app{
   height:100%;
 }
+.wrap{
+  font-size: 0;
+  overflow: hidden;
+  .left{
+    float: left;
+    font-size: 16px;
+  }
+  .right{
+    float: right;
+    font-size: 16px;
+  }
+}
 </style>

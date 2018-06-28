@@ -5,10 +5,19 @@
        <div class="name">张珊三</div>
      </div>
      <div class="content">
-        <mt-cell title="标题1" value="描述信息1"></mt-cell>
-        <mt-cell title="标题2" value="描述信息2"></mt-cell>
-        <mt-cell title="标题2" value="描述信息3"></mt-cell>
+        <mt-cell title="我要分享" to="/a" is-link></mt-cell>
+        <mt-cell title="我的粉丝" to="/a" is-link></mt-cell>
+        <mt-cell title="我要充值" to="/a" is-link></mt-cell>
+        <mt-cell title="我的积分" to="/a" is-link></mt-cell>
+        <mt-cell title="账单明细" to="/a" is-link></mt-cell>
+        <mt-cell title="积分收付" to="/a" is-link></mt-cell>
+        <mt-cell title="我的收藏" to="/a" is-link></mt-cell>
+        <mt-cell title="寄送地址" to="/a" is-link></mt-cell>
+        <mt-cell title="我的电话" value="1580123456"></mt-cell>
+        <mt-cell title="帮助与客服" to="/a" is-link></mt-cell>
      </div>
+     <div class="bz"><span class="left">备注</span><span class="right">昵称是读取微信昵称的，没提供修改的
+</span></div>
   </div>
 </template>
 <script>
@@ -43,8 +52,21 @@ export default {
   .mint-cell{
     border-bottom: 1px solid #ccc;
   }
-  .mint-cell:last-child{
+  .mint-cell{
     background-image:none;
+  }
+  .bz {
+    margin-top: 20px;
+    .left {
+      color: red;
+      margin: 0 10px;
+    }
+    .right {
+      display: inline-block;
+      width: calc(100% - 74px);
+      vertical-align: top;
+      line-height: 25px;
+    }
   }
 }
 </style>

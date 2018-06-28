@@ -36,9 +36,9 @@ let nav = [
     component: Page,
     children: [
       {
-        name: 'a',
+        name: 'jfscd',
         meta: {
-          title: 'a的'
+          title: '详情页'
         }
       }
     ]

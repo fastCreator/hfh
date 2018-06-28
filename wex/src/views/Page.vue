@@ -3,6 +3,7 @@
     <mt-header fixed :title="$route.meta.title">
       <mt-button slot="left" icon="back" @click="back"></mt-button>
     </mt-header>
+    <router-view/>
   </div>
 </template>
 <script>
