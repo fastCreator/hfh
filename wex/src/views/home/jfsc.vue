@@ -1,15 +1,17 @@
 <template>
   <div class="jfsc">
-      <div v-for="(it,i) in data" :key="i" class="goods">
-        <img :src="it.img" class="left">
-        <div class="right">
-          <div>{{it.title}}</div>
-          <div class="jf">积分：{{it.jf}}  赠送{{it.jf}}通证积分</div>
-        </div>
-        <img class="cart" src="../../assets/cart.png" @click="godetils">
+    <div v-for="(it,i) in data" :key="i" class="goods">
+      <img :src="it.img" class="left">
+      <div class="right">
+        <div>{{it.title}}</div>
+        <div class="jf">积分：{{it.jf}} 赠送{{it.jf}}通证积分</div>
       </div>
-      <div class="bz"><span class="left">备注</span><span class="right">通证积分5w的时候可以兑换可用积分1可用积分=100通证积分
-</span></div>
+      <img class="cart" src="../../assets/cart.png" @click="godetils">
+    </div>
+    <div class="bz">
+      <span class="left">备注</span>
+      <span class="right">通证积分5w的时候可以兑换可用积分1可用积分=100通证积分</span>
+    </div>
   </div>
 </template>
 <script>
@@ -18,12 +20,14 @@ export default {
     return {
       data: [
         {
-          img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2875653198,2481124055&fm=27&gp=0.jpg',
+          img:
+            'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2875653198,2481124055&fm=27&gp=0.jpg',
           title: '商品名称1',
           jf: 88
         },
         {
-          img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2875653198,2481124055&fm=27&gp=0.jpg',
+          img:
+            'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2875653198,2481124055&fm=27&gp=0.jpg',
           title: '商品名称1',
           jf: 88
         }
@@ -31,9 +35,7 @@ export default {
     }
   },
   watch: {},
-  created () {
-
-  },
+  created () {},
   methods: {
     godetils () {
       this.$router.push('/page/jfscd')
@@ -75,19 +77,6 @@ export default {
       position: absolute;
       right: 14px;
       top: 25px;
-    }
-  }
-  .bz {
-    margin-top: 20px;
-    .left {
-      color: red;
-      margin: 0 10px;
-    }
-    .right {
-      display: inline-block;
-      width: calc(100% - 74px);
-      vertical-align: top;
-      line-height: 25px;
     }
   }
 }

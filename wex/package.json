@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@xkeshi/vue-qrcode": "^1.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "mint-ui": "^2.2.13",

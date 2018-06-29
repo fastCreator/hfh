@@ -5,8 +5,15 @@ import router from './router'
 import store from './store'
 import Components from './components/install.js'
 import 'mint-ui/lib/style.min.css'
+import { InputNumber, Checkbox } from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import server from './server'
+import VueQrcode from '@xkeshi/vue-qrcode'
 import './utils'
+
+Vue.component(VueQrcode.name, VueQrcode)
+Vue.component(InputNumber.name, InputNumber)
+Vue.component(Checkbox.name, Checkbox)
 
 Vue.mixin({
   computed: {

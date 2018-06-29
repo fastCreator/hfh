@@ -5,9 +5,9 @@
        <div class="name">张珊三</div>
      </div>
      <div class="content">
-        <mt-cell title="我要分享" to="/a" is-link></mt-cell>
-        <mt-cell title="我的粉丝" to="/a" is-link></mt-cell>
-        <mt-cell title="我要充值" to="/a" is-link></mt-cell>
+        <mt-cell title="我要分享" to="/page/share" is-link></mt-cell>
+        <mt-cell title="我的粉丝" to="/page/fans" is-link></mt-cell>
+        <mt-cell title="我要充值" to="/page/recharge" is-link></mt-cell>
         <mt-cell title="我的积分" to="/a" is-link></mt-cell>
         <mt-cell title="账单明细" to="/a" is-link></mt-cell>
         <mt-cell title="积分收付" to="/a" is-link></mt-cell>
@@ -54,19 +54,6 @@ export default {
   }
   .mint-cell{
     background-image:none;
-  }
-  .bz {
-    margin-top: 20px;
-    .left {
-      color: red;
-      margin: 0 10px;
-    }
-    .right {
-      display: inline-block;
-      width: calc(100% - 74px);
-      vertical-align: top;
-      line-height: 25px;
-    }
   }
 }
 </style>

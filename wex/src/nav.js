@@ -40,6 +40,30 @@ let nav = [
         meta: {
           title: '详情页'
         }
+      },
+      {
+        name: 'cartd',
+        meta: {
+          title: '确认订单'
+        }
+      },
+      {
+        name: 'share',
+        meta: {
+          title: '我要分享'
+        }
+      },
+      {
+        name: 'fans',
+        meta: {
+          title: '我的粉丝'
+        }
+      },
+      {
+        name: 'recharge',
+        meta: {
+          title: '充值'
+        }
       }
     ]
   }
