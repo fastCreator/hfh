@@ -37,7 +37,7 @@ body {
   margin-top: 20px;
   .left {
     color: red;
-    margin: 20px 0 30px;
+    padding: 20px 10px 30px;
   }
   .right {
     display: inline-block;

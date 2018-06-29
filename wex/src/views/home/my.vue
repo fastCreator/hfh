@@ -8,7 +8,7 @@
         <mt-cell title="我要分享" to="/page/share" is-link></mt-cell>
         <mt-cell title="我的粉丝" to="/page/fans" is-link></mt-cell>
         <mt-cell title="我要充值" to="/page/recharge" is-link></mt-cell>
-        <mt-cell title="我的积分" to="/a" is-link></mt-cell>
+        <mt-cell title="我的积分" to="/page/jf" is-link></mt-cell>
         <mt-cell title="账单明细" to="/a" is-link></mt-cell>
         <mt-cell title="积分收付" to="/a" is-link></mt-cell>
         <mt-cell title="我的收藏" to="/a" is-link></mt-cell>

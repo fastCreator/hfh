@@ -64,6 +64,12 @@ let nav = [
         meta: {
           title: '充值'
         }
+      },
+      {
+        name: 'jf',
+        meta: {
+          title: '积分'
+        }
       }
     ]
   }
