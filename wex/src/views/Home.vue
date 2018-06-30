@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <mt-header fixed :title="$route.meta.title"></mt-header>
+    <mt-header fixed :title="$route.meta.title">
+      <router-link to="/" slot="right">
+        收码
+      </router-link>
+    </mt-header>
     <router-view/>
     <mt-tabbar fixed v-model="selected">
       <mt-tab-item v-for="(it ,i) in navs" :key="i" :id="it.name">
@@ -26,8 +30,7 @@ export default {
   created () {
     console.log(this)
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 <style lang="less">
@@ -39,7 +42,7 @@ export default {
 .home {
   color: #333;
   padding: 40px 0 55px;
-  .mint-tabbar{
+  .mint-tabbar {
   }
 }
 </style>

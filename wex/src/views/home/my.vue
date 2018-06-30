@@ -9,9 +9,9 @@
         <mt-cell title="我的粉丝" to="/page/fans" is-link></mt-cell>
         <mt-cell title="我要充值" to="/page/recharge" is-link></mt-cell>
         <mt-cell title="我的积分" to="/page/jf" is-link></mt-cell>
-        <mt-cell title="账单明细" to="/a" is-link></mt-cell>
-        <mt-cell title="积分收付" to="/a" is-link></mt-cell>
-        <mt-cell title="我的收藏" to="/a" is-link></mt-cell>
+        <mt-cell title="账单明细" to="/page/zdmx" is-link></mt-cell>
+        <mt-cell title="积分转增" to="/page/jfzz" is-link></mt-cell>
+        <mt-cell title="我的收藏" to="/page/wdsc" is-link></mt-cell>
         <mt-cell title="寄送地址" to="/a" is-link></mt-cell>
         <mt-cell title="我的电话" value="1580123456"></mt-cell>
         <mt-cell title="帮助与客服" to="/a" is-link></mt-cell>

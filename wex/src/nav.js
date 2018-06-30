@@ -70,6 +70,30 @@ let nav = [
         meta: {
           title: '积分'
         }
+      },
+      {
+        name: 'zdmx',
+        meta: {
+          title: '账单明细'
+        }
+      },
+      {
+        name: 'jfzz',
+        meta: {
+          title: '积分转赠'
+        }
+      },
+      {
+        name: 'scewm',
+        meta: {
+          title: '生成二维码'
+        }
+      },
+      {
+        name: 'wdsc',
+        meta: {
+          title: '我的收藏'
+        }
       }
     ]
   }
