@@ -1,9 +1,6 @@
 <template>
   <div class="home">
     <mt-header fixed :title="$route.meta.title">
-      <router-link to="/" slot="right">
-        收码
-      </router-link>
     </mt-header>
     <router-view/>
     <mt-tabbar fixed v-model="selected">
@@ -19,7 +16,7 @@ export default {
   data () {
     return {
       navs: nav[0].children,
-      selected: nav[0].children[0].name
+      selected: this.$route.name
     }
   },
   watch: {

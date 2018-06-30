@@ -8,7 +8,7 @@
       <span class="left">备注</span>
       <span class="right">收藏的商品可以删除的</span>
     </div>
-    <div class="flex-botttom"><mt-button type="primary" size="large">primary</mt-button></div>
+    <div class="flex-botttom"><mt-button type="primary" size="large">新建地址</mt-button></div>
   </div>
 </template>
 <script>

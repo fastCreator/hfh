@@ -12,9 +12,9 @@
         <mt-cell title="账单明细" to="/page/zdmx" is-link></mt-cell>
         <mt-cell title="积分转增" to="/page/jfzz" is-link></mt-cell>
         <mt-cell title="我的收藏" to="/page/wdsc" is-link></mt-cell>
-        <mt-cell title="寄送地址" to="/a" is-link></mt-cell>
+        <mt-cell title="寄送地址" to="/page/jsdz" is-link></mt-cell>
         <mt-cell title="我的电话" value="1580123456"></mt-cell>
-        <mt-cell title="帮助与客服" to="/a" is-link></mt-cell>
+        <mt-cell title="帮助与客服" to="/page/bzykf" is-link></mt-cell>
      </div>
      <div class="bz"><span class="left">备注</span><span class="right">昵称是读取微信昵称的，没提供修改的
 </span></div>

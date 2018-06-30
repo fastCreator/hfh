@@ -80,7 +80,11 @@ let nav = [
       {
         name: 'jfzz',
         meta: {
-          title: '积分转赠'
+          title: '积分转赠',
+          right: {
+            label: '收码',
+            url: '/page/ewm'
+          }
         }
       },
       {
@@ -93,6 +97,30 @@ let nav = [
         name: 'wdsc',
         meta: {
           title: '我的收藏'
+        }
+      },
+      {
+        name: 'jsdz',
+        meta: {
+          title: '寄送地址'
+        }
+      },
+      {
+        name: 'xjdz',
+        meta: {
+          title: '新建地址'
+        }
+      },
+      {
+        name: 'bzykf',
+        meta: {
+          title: '帮助与客服'
+        }
+      },
+      {
+        name: 'ewm',
+        meta: {
+          title: '二维码'
         }
       }
     ]
