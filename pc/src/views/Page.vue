@@ -7,7 +7,7 @@
         <el-aside width="200px">
           <nav-left></nav-left>
         </el-aside>
-        <el-main>
+        <el-main class="main-content">
           <router-view/>
         </el-main>
       </el-container>
@@ -65,6 +65,9 @@ body {
         }
       }
     }
+  }
+  .main-content > *{
+    padding: 10px;
   }
 }
 </style>

@@ -1,8 +1,12 @@
 export default
 [
   {
-    label: 'index',
-    name: 'index'
+    label: '积分商城',
+    name: 'jfsc'
+  },
+  {
+    label: '订单管理',
+    name: 'ddgl'
   },
   {
     label: '一级 1',

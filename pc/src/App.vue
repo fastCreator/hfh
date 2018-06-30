@@ -5,8 +5,9 @@
 </template>
 
 <style lang="less">
-*{
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+* {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 html,
 body {
@@ -16,7 +17,16 @@ body {
   margin: 0;
   padding: 0;
 }
-#app{
-  height:100%;
+#app {
+  height: 100%;
+  .el-input {
+    width: 200px;
+  }
+}
+.my-cell {
+  >* {
+    margin-right: 20px;
+  }
+  margin-bottom: 20px;
 }
 </style>
