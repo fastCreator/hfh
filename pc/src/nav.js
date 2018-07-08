@@ -5,6 +5,10 @@ export default
     name: 'jfsc'
   },
   {
+    label: '定制商城',
+    name: 'dzsc'
+  },
+  {
     label: '订单管理',
     name: 'ddgl'
   },

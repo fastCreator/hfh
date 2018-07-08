@@ -37,9 +37,14 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$server.login('xwjc2018', 'aa', (data) => {
-            window.$utils.setUser(data)
-            this.$router.push('/a/b')
+          window.server.login(this.ruleForm2.username, this.ruleForm2.pass, (data) => {
+            alert(data)
+            if (data.ustr == 'login failed') {
+              alert('登录失败')
+            } else {
+              window.$utils.setUser(data.user_info)
+              this.$router.push('/jfsc')
+            }
           })
         }
       })

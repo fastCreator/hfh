@@ -52,7 +52,7 @@ function startApiconn () {
 
 var init = function (startCall) {
   startApiconn()
-  apiconn.wsUri = 'ws://39.105.16.49:51717/xwjc' // "ws://116.62.127.156:51717/xgzx";
+  apiconn.wsUri = 'ws://47.104.245.204:51717/hfh2' // "ws://116.62.127.156:51717/xgzx";
   var server_infoCall = function () {
     // 这是入口
     window.console.info('start!!')
@@ -106,6 +106,19 @@ var server = {
         call(data)
       }
     })
+  },
+  tailored_good: function (name, call) {
+    // 定制商城商品
+    var attr = {
+      'obj': 'product',
+      'act': 'list_tailored',
+      product_name: name
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
+      }
+    })
   }
 }
 init()
@@ -115,4 +128,4 @@ init()
 //   server.login('xwjc2018', 'aa', function (data) { })
 // })
 
-export default server
+window.server = server

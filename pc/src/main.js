@@ -5,16 +5,9 @@ import store from './store'
 import Components from './components/install.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import server from './server'
+import './server'
 import './utils'
 
-Vue.mixin({
-  computed: {
-    $server () {
-      return server
-    }
-  }
-})
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Components)

@@ -69,7 +69,7 @@ export default {
     return {
       tableData: [],
       edit: {
-        dialogVisible: true,
+        dialogVisible: false,
         options: {
           yfsz: [],
           spfl: []
@@ -87,7 +87,14 @@ export default {
       }
     }
   },
+  created () {
+    window.server.point_good((data) => {
+      console.log(data)
+    })
+  },
   methods: {
+    handlePictureCardPreview () {},
+    handleRemove () {},
     sj () {},
     add () {
       this.$prompt('分类名称', '添加分类', {
