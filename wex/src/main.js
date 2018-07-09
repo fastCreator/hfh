@@ -7,7 +7,7 @@ import Components from './components/install.js'
 import 'mint-ui/lib/style.min.css'
 import { InputNumber, Checkbox } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import server from './server'
+import './server'
 import VueQrcode from '@xkeshi/vue-qrcode'
 import './utils'
 
@@ -15,21 +15,15 @@ Vue.component(VueQrcode.name, VueQrcode)
 Vue.component(InputNumber.name, InputNumber)
 Vue.component(Checkbox.name, Checkbox)
 
-Vue.mixin({
-  computed: {
-    $server () {
-      return server
-    }
-  }
-})
 Vue.config.productionTip = false
 Vue.use(Components)
 Vue.use(Components)
 Vue.use(Mint)
-let vm = new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
-
-window.console.log(vm)
+window.server.login(() => {
+  let vm = new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+  window.console.log(vm)
+})

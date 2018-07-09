@@ -66,33 +66,38 @@ var init = function (startCall) {
   }
   apiconn.connect()
 }
+var search = decodeURI(location.search)
+var searchObj = {}
+if (search != '') {
+  search.substr(1, search.length)
+    .split('&').forEach(function (data) {
+      var datas = data.split('=')
+      searchObj[datas[0]] = datas[1]
+    })
+}
+if (searchObj.openid == undefined && !location.host.match('127.0.0.1')) {
+  location.href = 'http://www.weixinduihuan.cn/cgi-bin/get.pl'
+}
 
 var server = {
 
   // 登录
-  login: function (account, code, call) {
-    // var type = 1
+  login: function (call) {
     apiCallback['person_login'] = function (data) {
       // 这是入口
-      window.console.info('login回调!!', data)
       if (call) {
         call(data)
       }
     }
+    var openid = searchObj.openid
+    var accessToken = searchObj.access_token
     var attr = {
-      'ctype': 'admin',
-      'login_name': account,
-      'login_passwd': code
+      'access_token': accessToken,
+      'ctype': 'user',
+      'openid': openid
     }
     apiconn.credentialx(attr)
     apiconn.connect()
-    // var attr = {
-    //   'access_token': access_token,
-    //   'ctype': 'user',
-    //   'openid': openid
-    // }
-    // apiconn.credentialx(attr)
-    // apiconn.connect()
   },
 
   admin_accountlist: function (call) {
@@ -115,4 +120,4 @@ init()
 //   server.login('xwjc2018', 'aa', function (data) { })
 // })
 
-export default server
+window.server = server

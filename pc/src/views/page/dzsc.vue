@@ -7,16 +7,16 @@
       <el-button type="primary" @click="addShop">添加</el-button>
     </div>
     <el-table :data="tableData" border style="width: 100%">
-      <el-table-column prop="bh" label="编号"></el-table-column>
-      <el-table-column prop="spmc" label="商品名称"></el-table-column>
-      <el-table-column prop="price" label="价格"></el-table-column>
-      <el-table-column prop="frbl" label="分润比例"></el-table-column>
-      <el-table-column prop="fhjf" label="分红积分"></el-table-column>
-      <el-table-column prop="yfsz" label="运费设置"></el-table-column>
+      <el-table-column prop="_id" label="编号"></el-table-column>
+      <el-table-column prop="product_name" label="商品名称"></el-table-column>
+      <el-table-column prop="product_price" label="价格"></el-table-column>
+      <el-table-column prop="bonus_percentage" label="分润比例"></el-table-column>
+      <el-table-column prop="bonus_point" label="分红积分"></el-table-column>
+      <el-table-column prop="freight" label="运费设置"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button @click="sj(scope.row)" type="text" size="small">上架</el-button>
-          <el-button type="text" size="small">编辑</el-button>
+          <el-button type="text" size="small" @click="edit(scope)">编辑</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -30,20 +30,27 @@ export default {
       name: '',
       tableData: [],
       pageDzsc: {
+        data: null,
         status: 'add',
         value: false
       }
     }
   },
   created () {
-    window.server.tailored_good(this.name, (data) => {
-      console.log(data)
+    window.server.search_tailored(this.name, (data) => {
+      this.tableData = data.list
     })
   },
   methods: {
+    edit (obj) {
+      this.pageDzsc.value = true
+      this.pageDzsc.status = 'edit'
+      this.pageDzsc.data = obj.row
+    },
     addShop () {
       this.pageDzsc.value = true
       this.pageDzsc.status = 'add'
+      this.pageDzsc.data = null
     },
     handlePictureCardPreview () {},
     handleRemove () {},

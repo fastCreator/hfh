@@ -1,7 +1,7 @@
 import APIConnection from './APIConnection'
 var apiInfoData = {}
 var apiCallback = {}
-var apiconn
+window.apiconn = null
 
 function getData (attr, callback) {
   // attr.person_id=person_id;
@@ -107,16 +107,66 @@ var server = {
       }
     })
   },
-  tailored_good: function (name, call) {
+  search_tailored: function (name, call) {
     // 定制商城商品
     var attr = {
       'obj': 'product',
-      'act': 'list_tailored',
+      'act': 'search_tailored',
       product_name: name
     }
     getData(attr, function (data) {
       if (call) {
         call(data)
+      }
+    })
+  },
+  add_tailored: function (obj, call) {
+    // 定制商城商品
+    var attr = {
+      'obj': 'product',
+      'act': 'add_tailored'
+    }
+    getData(Object.assign(attr, obj), function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  category_inquire: function (call) {
+    // 商品分类列表
+    var attr = {
+      'obj': 'category',
+      'act': 'inquire'
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data.category_list)
+      }
+    })
+  },
+  category_add: function (title, call) {
+    // 商品分类列表
+    var attr = {
+      'obj': 'category',
+      'act': 'add',
+      title: title
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data.category_list)
+      }
+    })
+  },
+  category_del: function (title, call) {
+    // 商品分类列表
+    var attr = {
+      'obj': 'category',
+      'act': 'del',
+      title: title
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data.category_list)
       }
     })
   }
