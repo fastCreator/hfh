@@ -1,6 +1,6 @@
 <template>
   <div class="navTop">
-        1231231
+        合福会后台管理系统
   </div>
 </template>
 

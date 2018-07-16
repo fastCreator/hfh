@@ -120,6 +120,19 @@ var server = {
       }
     })
   },
+  product_search_point: function (name, call) {
+    // 定制商城商品
+    var attr = {
+      'obj': 'product',
+      'act': 'list_point ',
+      product_name: name
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
   add_tailored: function (obj, call) {
     // 定制商城商品
     var attr = {
@@ -127,6 +140,72 @@ var server = {
       'act': 'add_tailored'
     }
     getData(Object.assign(attr, obj), function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  edit_tailored: function (obj, call) {
+    // 定制商城商品
+    var attr = {
+      'obj': 'product',
+      'act': 'edit_tailored',
+      product_id: obj._id
+    }
+    getData(Object.assign(attr, obj), function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  orderDetails: function (id, call) {
+    // 详情
+    var attr = {
+      'obj': 'order',
+      'act': 'details',
+      order_id: id
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  p_order_cancel: function (id, numb, call) {
+    // 详情
+    var attr = {
+      'obj': 'order',
+      'act': 'express',
+      order_id: id,
+      tracking_number: numb
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  p_order_finish: function (id, call) {
+    // 详情
+    var attr = {
+      'obj': 'order',
+      'act': 'finish',
+      order_id: id
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  p_order_express: function (id, call) {
+    // 详情
+    var attr = {
+      'obj': 'order',
+      'act': 'cancel',
+      order_id: id
+    }
+    getData(attr, function (data) {
       if (call) {
         call(data)
       }
@@ -167,6 +246,46 @@ var server = {
     getData(attr, function (data) {
       if (call) {
         call(data.category_list)
+      }
+    })
+  },
+  orderclassify: function (classify, call) {
+    // 商品分类列表
+    var attr = {
+      'obj': 'order',
+      'act': 'classify',
+      class_to_do: classify
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  onoffsale_tailored: function (operate, id, call) {
+    // 上下架
+    var attr = {
+      'obj': 'product',
+      'act': 'onoffsale_tailored',
+      operate_to_do: operate,
+      _id: id
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
+      }
+    })
+  },
+  ordersearch: function (name, call) {
+    // 商品分类列表
+    var attr = {
+      'obj': 'order',
+      'act': 'search',
+      product_name: name
+    }
+    getData(attr, function (data) {
+      if (call) {
+        call(data)
       }
     })
   }
