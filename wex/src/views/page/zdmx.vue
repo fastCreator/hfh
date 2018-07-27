@@ -31,8 +31,16 @@ export default {
     }
   },
   watch: {},
-  created () {},
-  methods: {}
+  created () {
+    this.getList()
+  },
+  methods: {
+    getList () {
+      window.server.details_show((d) => {
+        console.log(d)
+      })
+    }
+  }
 }
 </script>
 <style lang="less">

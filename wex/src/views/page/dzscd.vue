@@ -3,16 +3,16 @@
       <img class="img" :src="data.img">
       <div class="title">{{data.title}}</div>
       <div class="wrap">
-          <div class="left">积分：{{data.jf}}</div>
+          <div class="left">￥{{data.bonus_point}}</div>
           <div class="right">
             <mt-button type="primary" size="small" @click="collection">收藏</mt-button>
           </div>
       </div>
-      <div class="info">优惠  赠送{{data.token_point}}通证积分</div>
-      <div class="info">限购  最多兑换{{data.buying_limit}}件</div>
+      <div class="info">促销  购买送{{data.bonus_point}}积分</div>
+      <div class="info">限购  最多购买{{data.buying_limit}}件</div>
       <img class="detils" v-for="(it,i) in data.detils" :src="it" :key="i">
       <div class="flex_button wrap">
-          <div class="left">积分：{{data.jf}} 赠送{{data.token_point}}通证积分</div>
+          <div class="left">￥{{data.bonus_point}} 赠送{{data.bonus_point}}分红积分</div>
           <div class="right">
             <mt-button class="one" type="primary" size="small" @click="addShop">加入购物车</mt-button>
             <mt-button type="primary" size="small">立即购买</mt-button>
@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     collection () {
-      window.server.product_collection_point(this.data._id, function () {
+      window.server.product_collection_tailored(this.data._id, function () {
         Toast({
           message: '收藏成功',
           position: 'bottom',
@@ -52,7 +52,7 @@ export default {
       })
     },
     addShop () {
-      window.server.to_cart_point(this.data._id, function () {
+      window.server.to_cart_tailored(this.data._id, function () {
         Toast({
           message: '添加成功',
           position: 'bottom',

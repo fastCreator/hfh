@@ -1,8 +1,10 @@
 <template>
   <div class="my">
+    <mt-header fixed :title="$route.meta.title">
+    </mt-header>
      <div class="header">
-       <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3942989250,3371488751&fm=27&gp=0.jpg">
-       <div class="name">张珊三</div>
+       <img :src="header">
+       <div class="name">{{name}}</div>
      </div>
      <div class="content">
         <mt-cell title="我要分享" to="/page/share" is-link></mt-cell>
@@ -13,20 +15,30 @@
         <mt-cell title="积分转增" to="/page/jfzz" is-link></mt-cell>
         <mt-cell title="我的收藏" to="/page/wdsc" is-link></mt-cell>
         <mt-cell title="寄送地址" to="/page/jsdz" is-link></mt-cell>
-        <mt-cell title="我的电话" value="1580123456"></mt-cell>
+        <mt-cell title="我的电话" :value="tel"></mt-cell>
         <mt-cell title="帮助与客服" to="/page/bzykf" is-link></mt-cell>
      </div>
-     <div class="bz"><span class="left">备注</span><span class="right">昵称是读取微信昵称的，没提供修改的
-</span></div>
   </div>
 </template>
 <script>
 export default {
   data () {
-    return {}
+    return {
+      header: '',
+      name: '',
+      tel: ''
+    }
   },
-  created () {},
+  created () {
+    this.setInfo()
+  },
   methods: {
+    setInfo () {
+      let info = window.apiconn.user_info
+      this.header = window.apiconn.server_info.download_path + info.headFid
+      this.name = info.nickname
+      this.tel = info.phone_number
+    }
   }
 }
 </script>

@@ -225,10 +225,10 @@ var APIConnection = function () {
       this.server_info != null &&
                 (this.server_info.web_app_ping != null && this.server_info.web_app_ping > 0) && (b = this.server_info.web_app_ping)
       this.last_resp < this.last_ping && a - this.last_ping > this.MAX_RESPONSE_TIME ? (this.local_response(), this.websocket != null && (this.websocket.onclose = null, this.websocket.onerror = null, this.websocket.onmessage = null, this.websocket.close()), this.websocket = null, window.setTimeout(d(this.connect, this), 2E3)) : a - this.last_ping >= b && (this.clog('connection_minder ping initiated'), this.ping())
-    } else { 
-this.conn_state ==
-            'LOGIN_SCREEN_ENABLED' && (a = this.getUnixTime(), this.last_resp < this.last_ping && (a - this.last_ping > this.MAX_RESPONSE_TIME && this.user_pref.http_like_request_enabled == 'true' && this.last_req != null) && (a = this.last_req, this.last_req = null, this.websocket != null && (this.websocket.onclose = null, this.websocket.onerror = null, this.websocket.onmessage = null, this.websocket.close()), this.websocket = null, this.send_obj(a))) 
-}
+    } else {
+      this.conn_state ==
+            'LOGIN_SCREEN_ENABLED' && (a = this.getUnixTime(), this.last_resp < this.last_ping && (a - this.last_ping > this.MAX_RESPONSE_TIME && this.user_pref.http_like_request_enabled == 'true' && this.last_req != null) && (a = this.last_req, this.last_req = null, this.websocket != null && (this.websocket.onclose = null, this.websocket.onerror = null, this.websocket.onmessage = null, this.websocket.close()), this.websocket = null, this.send_obj(a)))
+    }
     window.setTimeout(d(this.minder, this), 1E3 * this.MINDER_TIME)
   }
   window.setTimeout(d(this.minder, this), 1E3 * this.MINDER_TIME)

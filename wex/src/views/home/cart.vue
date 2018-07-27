@@ -1,13 +1,19 @@
 <template>
   <div class="cart">
+    <mt-header fixed :title="$route.meta.title">
+    </mt-header>
+    <mt-navbar v-model="selected">
+      <mt-tab-item id="1">积分商城</mt-tab-item>
+      <mt-tab-item id="2">定制商城</mt-tab-item>
+    </mt-navbar>
     <div class="goods" v-for="(it,i) in data" :key="i">
-      <el-checkbox v-model="it.checked"></el-checkbox>
+      <el-checkbox :value="it.checked" @input="(v)=>{it.checked=v;$set(data,i,it)}"></el-checkbox>
       <img :src="it.img">
       <div class="right">
         <div>{{it.title}}</div>
         <div>
-          <span class="price">￥{{it.price}}</span>
-          <el-input-number v-model="it.num" :min="1" size="small"></el-input-number>
+          <span class="price">{{selected?'积分':'￥'}}{{it.price}}</span>
+          <el-input-number :value="it.num" @input="numbs($event,it,i)" :min="1" size="small"></el-input-number>
         </div>
       </div>
     </div>
@@ -24,24 +30,25 @@
 export default {
   data () {
     return {
-      data: [
-        {
-          checked: true,
-          img:
-            'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2875653198,2481124055&fm=27&gp=0.jpg',
-          title: '商品名称标题',
-          price: '99.00',
-          num: 1
-        }
-      ]
+      selected: '1',
+      data: []
     }
   },
-  watch: {},
-  created () {},
+  watch: {
+    selected: {
+      handler () {
+        this.getList()
+      },
+      immediate: true
+    }
+  },
+  created () {
+
+  },
   computed: {
     allPrice () {
       return this.data
-        .reduce((a, b) => a + ((b.checked ? b.price * b.num : 0) - 0), 0)
+        .reduce((a, b) => a - 0 + ((b.checked ? (b.price - 0) * b.num : 0) - 0), 0)
         .toFixed(2)
     },
     isckAll () {
@@ -52,12 +59,54 @@ export default {
     }
   },
   methods: {
-    gocartd () {
+    numbs (num, it, i) {
+      it.num = num
+      this.$set(this.data, i, it)
+      if (this.selected === '1') {
+        window.server.p_cart_number_edit_point(it._id, it.num)
+      } else {
+        window.server.p_cart_number_edit_tailored(it._id, it.num)
+      }
+    },
+    getList () {
+      if (this.selected === '1') {
+        window.server.cart_details_point((data) => {
+          this.data = data.cart_list
+          this.data.forEach(it => {
+            Object.assign(it, {
+              checked: true,
+              img: window.apiconn.server_info.download_path + Object.keys(it.cover)[0],
+              title: it.product_name,
+              price: it.product_point,
+              num: it.product_number,
+              _id: it._id
+            })
+          })
+        })
+      } else {
+        window.server.cart_details_tailored((data) => {
+          this.data = data.cart_list
+          this.data.forEach(it => {
+            Object.assign(it, {
+              checked: true,
+              img: window.apiconn.server_info.download_path + Object.keys(it.cover)[0],
+              title: it.product_name,
+              price: it.product_price,
+              num: it.product_number,
+              _id: it._id
+            })
+          })
+        })
+      }
+    },
+    gocartd (it) {
       this.$router.push('/page/cartd')
+      window.sessionStorage.data = JSON.stringify(it)
     },
     ckAll (v) {
-      this.data.forEach(it => {
+      this.data.forEach((it, i) => {
         it.checked = v
+        this.$set(this.data, i, it)
       })
     }
   }
@@ -65,6 +114,7 @@ export default {
 </script>
 <style lang="less">
 .cart {
+  padding-bottom: 50px;
   .goods {
     border-bottom: 1px solid #ccc;
     padding: 10px 4px;
@@ -102,6 +152,7 @@ export default {
   }
   .flex-bottom {
     position: fixed;
+    z-index:1000;
     bottom: 54px;
     left: 0;
     width: 100%;

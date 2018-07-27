@@ -19,11 +19,14 @@ Vue.config.productionTip = false
 Vue.use(Components)
 Vue.use(Components)
 Vue.use(Mint)
-window.server.login(() => {
-  let vm = new Vue({
-    router,
-    store,
-    render: h => h(App)
-  }).$mount('#app')
-  window.console.log(vm)
-})
+window.init(() => {
+  window.server.login(() => {
+    let vm = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+    window.console.log(vm)
+  })
+}
+)

@@ -36,7 +36,7 @@ export default {
   data () {
     return {
       data: {
-        name: '张三三',
+        name: '',
         tel: '13568459754',
         localtion: '湖南省桂香市',
         img:
@@ -48,8 +48,16 @@ export default {
     }
   },
   watch: {},
-  created () {},
+  created () {
+    this.getData()
+  },
   methods: {
+    getData () {
+      let id = JSON.parse(window.sessionStorage.data)._id
+      window.server.p_order_details(id, (data) => {
+        console.log(data)
+      })
+    },
     buy () {
 
     }

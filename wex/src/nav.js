@@ -42,6 +42,12 @@ let nav = [
         }
       },
       {
+        name: 'dzscd',
+        meta: {
+          title: '详情页'
+        }
+      },
+      {
         name: 'cartd',
         meta: {
           title: '确认订单'

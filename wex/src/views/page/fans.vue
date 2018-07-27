@@ -50,8 +50,16 @@ export default {
     }
   },
   watch: {},
-  created () {},
-  methods: {}
+  created () {
+    this.getList()
+  },
+  methods: {
+    getList () {
+      window.server.fansShow((d) => {
+        console.log(d)
+      })
+    }
+  }
 }
 </script>
 <style lang="less">

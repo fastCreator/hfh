@@ -2,10 +2,12 @@
   <div class="jsdz">
     <div class="item" v-for="(it ,i) in data" :key="i">
       <div class="wrap">
-        <span class="left">收货人：{{it.name}}</span>
-        <span class="right">{{it.tel}}</span>
+        <span class="left">收货人：{{it.express_name}}</span>
+        <span class="right">{{it.express_phone}}</span>
       </div>
-      <div >收货地址：{{it.location}}</div>
+      <div >收货地址：{{it.express_addr + it.express_addr_details}}
+      </div>
+      <a type="primary" @click="setmoren(it)">设为默认地址</a>
     </div>
     <div class="flex-botttom"><mt-button type="primary" size="large" @click.native="go">新建地址</mt-button></div>
   </div>
@@ -14,31 +16,33 @@
 export default {
   data () {
     return {
-      data: [
-        {
-          name: '张三',
-          tel: '15801234567',
-          location: '福建省福州市台江区达道路123号'
-        },
-        {
-          name: '张三',
-          tel: '15801234567',
-          location: '福建省福州市台江区达道路123号'
-        }
-      ]
+      data: []
     }
   },
   watch: {},
-  created () {},
+  created () {
+    this.getList()
+  },
   methods: {
+    getList () {
+      window.server.person_addr_details((data) => {
+        this.data = data.list_out.filter(it => it)
+      })
+    },
     go () {
       this.$router.push('/page/xjdz')
+    },
+    setmoren (it) {
+
     }
   }
 }
 </script>
 <style lang="less">
 .jsdz {
+  a{
+    color: #26a2ff;
+  }
   .item{
     padding: 8px;
     border-bottom: 1px solid #ccc;

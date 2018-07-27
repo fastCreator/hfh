@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <mt-header fixed :title="$route.meta.title">
-    </mt-header>
     <router-view/>
     <mt-tabbar fixed v-model="selected">
       <mt-tab-item v-for="(it ,i) in navs" :key="i" :id="it.name">
